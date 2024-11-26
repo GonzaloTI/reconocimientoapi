@@ -1,8 +1,11 @@
-# Usar una imagen base de Python 3.11 (puedes usar una versión específica si lo prefieres)
-FROM python:3.11-slim
+# Usar una imagen base de Python 3.11
+FROM python:3.11
 
 # Actualizar el sistema e instalar dependencias necesarias
-RUN apt-get update && apt-get install -y libgl1 libglib2.0-0
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1 \
+    libglib2.0-0 \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Crear un directorio de trabajo en el contenedor
 WORKDIR /app
@@ -12,6 +15,9 @@ COPY requirements.txt /app/
 
 # Instalar las dependencias de Python desde requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Instalar Ultralytics directamente con pip
+RUN pip install --no-cache-dir ultralytics
 
 # Copiar el resto de los archivos del proyecto
 COPY . /app/
