@@ -47,7 +47,7 @@ from django.http import JsonResponse
 from django.core.files.storage import FileSystemStorage
 from PIL import Image
 
-#from ultralytics import YOLO
+from ultralytics import YOLO
 
 
 from io import BytesIO
@@ -127,7 +127,7 @@ def register(request):
 def analizar_imagen(request):
     if request.method == 'POST' and 'imagen' in request.FILES:
         model_path = os.path.join(settings.BASE_DIR, 'myapp', 'static', 'bestecoseg.pt')
-        #model = YOLO(model_path)
+        model = YOLO(model_path)
         # Usar getlist para obtener todas las imágenes enviadas bajo el mismo Key
         imagenes = request.FILES.getlist('imagen')  
         print(f"Total imágenes recibidas: {len(imagenes)}")  # Verificar cuántas imágenes llegaron
@@ -146,7 +146,7 @@ def analizar_imagen(request):
                 img = img.convert("RGB")
 
             # Analizar la imagen con el modelo YOLO
-            results = [] #model(img)
+            results = model(img)
 
             # Extraer detecciones de la imagen
             detections = []
