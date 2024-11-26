@@ -19,3 +19,4 @@ python-dotenv>=0.19.0
 ultralytics==8.3.37
 pillow==10.1.0
 django-cors-headers==4.6.0
+djangorestframework==3.15.2
