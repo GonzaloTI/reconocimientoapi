@@ -115,13 +115,15 @@ def register(request):
 # Cargar el modelo YOLO
 #model = YOLO("model.pt")  # Asegúrate de tener el modelo pt en el directorio adecuado
 # Obtener la ruta del modelo en la carpeta estática
-model_path = os.path.join(settings.BASE_DIR, 'myapp','static', 'bestecoseg.pt')
-model = YOLO(model_path)  # Cargar el modelo desde static
+#model_path = os.path.join(settings.BASE_DIR, 'myapp','static', 'bestecoseg.pt')
+#model = YOLO(model_path)  # Cargar el modelo desde static
 
 
 @csrf_exempt
 def analizar_imagen(request):
     if request.method == 'POST' and 'imagen' in request.FILES:
+        model_path = os.path.join(settings.BASE_DIR, 'myapp', 'static', 'bestecoseg.pt')
+        model = YOLO(model_path)
         # Usar getlist para obtener todas las imágenes enviadas bajo el mismo Key
         imagenes = request.FILES.getlist('imagen')  
         print(f"Total imágenes recibidas: {len(imagenes)}")  # Verificar cuántas imágenes llegaron
