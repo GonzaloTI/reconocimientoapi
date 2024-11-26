@@ -30,6 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'web-production-7b18.up.railway.app',
     'web-production-3654.up.railway.app',
+    'web-production-dd2e9.up.railway.app',
     '127.0.0.1',
     '8080'
 ]
