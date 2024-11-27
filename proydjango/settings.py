@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # Cargar el archivo .env (esto buscará el archivo .env en la raíz de tu proyecto)
-load_dotenv()
+#load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -25,18 +25,14 @@ load_dotenv()
 SECRET_KEY = 'django-insecure-kq%szphx5m(%muf+anlz*ivv&epysauc@r1j@_21q_ivzs2wes'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    'web-production-7b18.up.railway.app',
-    'web-production-3654.up.railway.app',
-    'web-production-dd2e9.up.railway.app',
     '3.84.141.249',
     '18.212.29.74',
     '127.0.0.1',
     '54.159.195.16',
     '44.212.25.161',
-    '8080'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
