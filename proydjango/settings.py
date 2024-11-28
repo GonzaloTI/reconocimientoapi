@@ -98,7 +98,16 @@ WSGI_APPLICATION = 'proydjango.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': None,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'microservicio',  # Nombre de tu base de datos PostgreSQL
+        'USER': 'postgres',                    # Usuario de PostgreSQL
+        'PASSWORD': 'proyectosoftware2',             # Contraseña de PostgreSQL
+        'HOST': 'database-2.cqbyti8zhpca.us-east-1.rds.amazonaws.com',                  # Dirección del servidor (puede ser 'localhost' o la IP si está en otro servidor)
+        'PORT': '5432',                       # Puerto en el que corre PostgreSQL (por defecto es 5432)
     }
 }
 

@@ -34,7 +34,7 @@ from django.shortcuts import get_object_or_404
 from django.db import connection
 
 import os  # Asegúrate de importar el módulo os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 
 # Set up logging for error tracking and debugging.
@@ -53,7 +53,7 @@ from ultralytics import YOLO
 from io import BytesIO
 import base64
 from django.conf import settings
-load_dotenv()
+#load_dotenv()
 
 from django.views.decorators.csrf import csrf_exempt
 
