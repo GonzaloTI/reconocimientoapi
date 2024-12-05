@@ -1,5 +1,6 @@
 
 # Import Django utilities for rendering templates, redirecting URLs, and handling HTTP responses.
+import gc
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import JsonResponse
@@ -182,6 +183,9 @@ def analizar_imagen(request):
                 'original_image': original_img_str,
                 'processed_image': processed_img_str,
             })
+            # Liberar memoria de la iteración actual
+            del img, processed_image, processed_buffered
+            gc.collect()
 
         # Devolver los resultados de todas las imágenes
         return JsonResponse({'images': results_list})
